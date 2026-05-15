@@ -1,0 +1,848 @@
+/* REMOVE DEFAULT SPACE */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* BODY */
+body{
+  font-family: Arial, sans-serif;
+  color: white;
+}
+/* HERO SECTION */
+.hero{
+  width: 100%;
+  height: 100vh;
+  background-image:
+  linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+  url("https://i.pinimg.com/1200x/4a/0a/cd/4a0acd33c51e091bc96f61f81eaeaf38.jpg");
+  background-size: 110%;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* ANIMATION */
+  animation: backgroundMove 15s infinite alternate ease-in-out;
+}
+/* NAVBAR */
+.navbar{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+}
+/* LOGO */
+.logo{
+  font-size: 24px;
+  font-weight: bold;
+}
+/* NAV LINKS */
+.nav-links{
+  display: flex;
+  list-style: none;
+}
+.nav-links li{
+  margin-left: 30px;
+}
+
+.nav-links a{
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+.nav-links a:hover{
+  color: lightblue;
+}
+/* CONTENT BOX */
+
+.content-box{
+
+  text-align: center;
+  background-color: rgba(0,0,0,0.4);
+  padding: 40px;
+  border-radius: 20px;
+  width: 70%;
+}
+
+
+/* HEADING */
+
+.content-box h1{
+  font-size: 70px;
+  margin-bottom: 20px;
+}
+
+.content-box span{
+  color: lightblue;
+}
+
+
+/* PARAGRAPH */
+
+.content-box p{
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+
+/* BUTTON */
+
+button{
+
+  padding: 15px 30px;
+
+  border: none;
+  border-radius: 30px;
+
+  background-color: #5db9ff;
+
+  color: white;
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+
+/* BUTTON HOVER */
+
+button:hover{
+  background-color: #359cff;
+}
+/*explore*/
+/* BODY */
+
+.explore-body{
+
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+
+  background-image:
+  linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.85)),
+  url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=1200&auto=format&fit=crop");
+
+  background-size: 110%;
+  background-position: center;
+
+  min-height: 100vh;
+
+  /* BACKGROUND ANIMATION */
+
+  animation: exploreBackgroundMove 18s infinite alternate ease-in-out;
+}
+
+
+/* NAVBAR */
+
+.explore-navbar{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 50px;
+}
+
+
+
+/* LOGO */
+
+.explore-logo{
+
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+
+/* NAV LINKS */
+
+.explore-nav-links{
+
+  display: flex;
+  list-style: none;
+}
+
+.explore-nav-links li{
+
+  margin-left: 30px;
+}
+
+.explore-nav-links a{
+
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+
+
+/* ACTIVE LINK */
+
+.explore-active{
+
+  color: #66ccff !important;
+}
+
+
+
+/* MAIN SECTION */
+
+.explore-main-section{
+
+  text-align: center;
+  padding: 30px;
+}
+
+
+
+/* TITLE */
+
+.explore-title{
+
+  font-size: 60px;
+  margin-top: 20px;
+}
+
+
+
+/* SUBTITLE */
+
+.explore-subtitle{
+
+  color: #cccccc;
+
+  margin-top: 15px;
+  margin-bottom: 50px;
+}
+
+
+
+/* CARD CONTAINER */
+
+.explore-card-container{
+
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+
+  flex-wrap: wrap;
+}
+
+
+
+/* CARD */
+
+.explore-card{
+
+  width: 300px;
+
+  background-color: rgba(255,255,255,0.05);
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  transition: 0.3s;
+}
+
+
+
+/* CARD HOVER */
+
+.explore-card:hover{
+
+  transform: translateY(-10px);
+}
+
+
+
+/* CARD IMAGE */
+
+.explore-card-image{
+
+  width: 120%;
+  height: 250px;
+
+  object-fit: cover;
+
+  animation: imageMove 3s infinite alternate ease-in-out;
+}
+/* IMAGE MOVEMENT ON HOVER */
+
+/* IMAGE MOVING LEFT TO RIGHT */
+
+@keyframes imageMove {
+
+  0%{
+    transform: translateX(0);
+  }
+
+  100%{
+    transform: translateX(-40px);
+  }
+
+}
+
+/* CARD CONTENT */
+
+.explore-card-content{
+
+  padding: 25px;
+}
+
+
+
+/* CARD TITLE */
+
+.explore-card-content h2{
+
+  margin-bottom: 15px;
+}
+
+
+
+/* CARD TEXT */
+
+.explore-card-content p{
+
+  font-size: 15px;
+  line-height: 1.7;
+
+  color: #dddddd;
+}
+
+
+
+/* BUTTON */
+
+.explore-button{
+
+  margin-top: 20px;
+
+  padding: 12px 28px;
+
+  border-radius: 30px;
+
+  border: 1px solid white;
+
+  background-color: transparent;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 15px;
+}
+
+
+
+/* BUTTON HOVER */
+
+.explore-button:hover{
+
+  background-color: white;
+  color: black;
+}
+
+
+
+/* CARD BORDER COLORS */
+
+.explore-blue-card{
+  border: 2px solid #35b7ff;
+}
+
+.explore-green-card{
+  border: 2px solid #84ff4f;
+}
+
+.explore-orange-card{
+  border: 2px solid #ffb347;
+}
+/* CARD BORDER COLORS */
+
+.explore-blue-card{
+  border: 2px solid #35b7ff;
+}
+
+.explore-green-card{
+  border: 2px solid #84ff4f;
+}
+
+.explore-orange-card{
+  border: 2px solid #ffb347;
+}
+
+
+
+/* FIRE GLOW ON DINOSAUR */
+
+#dinoCard:hover{
+
+  box-shadow: 0 0 40px orange;
+
+  transform: scale(1.05);
+
+  transition: 0.3s;
+}
+/*origin*/
+/* BODY */
+
+.origin-body{
+
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+
+  background-image:
+  linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
+  url("https://i.pinimg.com/1200x/56/30/31/56303126d56dfb5338b93de3adc9ff2f.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  height: 100vh;
+}
+
+
+
+/* NAVBAR */
+
+.origin-navbar{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 50px;
+}
+
+
+
+/* LOGO */
+
+.origin-logo{
+
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+
+/* NAV LINKS */
+
+.origin-nav-links{
+
+  display: flex;
+  list-style: none;
+}
+
+.origin-nav-links li{
+
+  margin-left: 30px;
+}
+
+.origin-nav-links a{
+
+  text-decoration: none;
+  color: white;
+}
+
+
+
+/* MAIN SECTION */
+
+.origin-main-section{
+
+  padding: 40px 60px;
+}
+
+
+
+/* BACK BUTTON */
+
+.origin-back-button{
+
+  text-decoration: none;
+  color: white;
+
+  background-color: rgba(255,255,255,0.1);
+
+  padding: 10px 20px;
+
+  border-radius: 30px;
+}
+
+
+
+/* CONTENT BOX */
+
+.origin-content-box{
+
+  margin-top: 40px;
+
+  width: 500px;
+
+  background-color: rgba(0,0,0,0.45);
+
+  padding: 40px;
+
+  border-radius: 20px;
+
+  backdrop-filter: blur(5px);
+}
+
+
+
+/* TITLE */
+
+.origin-text h1{
+
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+
+
+/* SUBTITLE */
+
+.origin-text h3{
+
+  color: #b8e7ff;
+  margin-bottom: 30px;
+}
+
+
+
+/* TEXT */
+
+.origin-text p{
+
+  line-height: 1.8;
+  margin-bottom: 20px;
+
+  color: #dddddd;
+}
+
+/*dino*/
+/* BODY */
+
+.dino-body{
+
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+
+  background-image:
+  linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
+  url("https://i.pinimg.com/1200x/43/f0/43/43f043d88c3c381d10b7c5bcdb36bd93.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  height: 100vh;
+}
+
+
+
+/* NAVBAR */
+
+.dino-navbar{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 50px;
+}
+
+
+
+/* LOGO */
+
+.dino-logo{
+
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+
+/* NAV LINKS */
+
+.dino-nav-links{
+
+  display: flex;
+  list-style: none;
+}
+
+.dino-nav-links li{
+
+  margin-left: 30px;
+}
+
+.dino-nav-links a{
+
+  text-decoration: none;
+  color: white;
+}
+
+
+
+/* MAIN SECTION */
+
+.dino-main-section{
+
+  padding: 40px 60px;
+}
+
+
+
+/* BACK BUTTON */
+
+.dino-back-button{
+
+  text-decoration: none;
+  color: white;
+
+  background-color: rgba(255,255,255,0.1);
+
+  padding: 10px 20px;
+
+  border-radius: 30px;
+}
+
+
+
+/* CONTENT BOX */
+
+.dino-content-box{
+
+  margin-top: 40px;
+
+  width: 500px;
+
+  background-color: rgba(0,0,0,0.45);
+
+  padding: 40px;
+
+  border-radius: 20px;
+
+  backdrop-filter: blur(5px);
+}
+
+
+
+/* TITLE */
+
+.dino-text h1{
+
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+
+
+/* SUBTITLE */
+
+.dino-text h3{
+
+  color: #d8ffb8;
+  margin-bottom: 30px;
+}
+
+
+
+/* TEXT */
+
+.dino-text p{
+
+  line-height: 1.8;
+  margin-bottom: 20px;
+
+  color: #dddddd;
+}
+/*mammal*/
+/* BODY */
+
+.mammal-body{
+
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+
+  background-image:
+  linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
+  url("https://i.pinimg.com/1200x/b8/d0/91/b8d0913988ee269a74bfbccc6aed3381.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  height: 100vh;
+}
+
+
+
+/* NAVBAR */
+
+.mammal-navbar{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 50px;
+}
+
+
+
+/* LOGO */
+
+.mammal-logo{
+
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+
+/* NAV LINKS */
+
+.mammal-nav-links{
+
+  display: flex;
+  list-style: none;
+}
+
+.mammal-nav-links li{
+
+  margin-left: 30px;
+}
+
+.mammal-nav-links a{
+
+  text-decoration: none;
+  color: white;
+}
+
+
+
+/* MAIN SECTION */
+
+.mammal-main-section{
+
+  padding: 40px 60px;
+}
+
+
+
+/* BACK BUTTON */
+
+.mammal-back-button{
+
+  text-decoration: none;
+  color: white;
+
+  background-color: rgba(255,255,255,0.1);
+
+  padding: 10px 20px;
+
+  border-radius: 30px;
+}
+
+
+
+/* CONTENT BOX */
+
+.mammal-content-box{
+
+  margin-top: 40px;
+
+  width: 500px;
+
+  background-color: rgba(0,0,0,0.45);
+
+  padding: 40px;
+
+  border-radius: 20px;
+
+  backdrop-filter: blur(5px);
+}
+
+
+
+/* TITLE */
+
+.mammal-text h1{
+
+  font-size: 55px;
+  margin-bottom: 10px;
+}
+
+
+
+/* SUBTITLE */
+
+.mammal-text h3{
+
+  color: #ffe7b8;
+  margin-bottom: 30px;
+}
+
+
+
+/* TEXT */
+
+.mammal-text p{
+
+  line-height: 1.8;
+  margin-bottom: 20px;
+
+  color: #dddddd;
+}
+
+/* BACKGROUND MOVING ANIMATION */
+
+@keyframes backgroundMove {
+
+  0%{
+    background-position: center;
+  }
+
+  50%{
+    background-position: top;
+  }
+
+  100%{
+    background-position: bottom;
+  }
+
+}
+/* MOVING BACKGROUND ANIMATION */
+
+@keyframes exploreBackgroundMove {
+
+  0%{
+
+    background-position: center;
+    background-size: 110%;
+  }
+
+  50%{
+
+    background-position: top;
+    background-size: 115%;
+  }
+
+  100%{
+
+    background-position: bottom;
+    background-size: 110%;
+  }
+
+}

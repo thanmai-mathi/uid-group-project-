@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<title>Digital Human Encyclopedia</title>
+
+
+<style>
+
+body{
+  background: #050816 url("https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+}
+
+
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:100px;
+}
+
+
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#00e5ff33;
+    border-radius:50%;
+    top:-200px;
+    left:-150px;
+    filter:blur(100px);
+    z-index:-1;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    background:#8a2be233;
+    border-radius:50%;
+    bottom:-150px;
+    right:-100px;
+    filter:blur(100px);
+    z-index:-1;
+}
+
+
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(12px);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:32px;
+    color:#00e5ff;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-size:18px;
+    transition:0.4s;
+}
+
+.nav-links a:hover{
+    color:#00e5ff;
+}
+
+
+.feature-box{
+    display:flex;
+    gap:40px;
+    align-items:center;
+    flex-wrap:wrap;
+    background:rgba(255,255,255,0.08);
+    border-radius:35px;
+    padding:35px;
+    backdrop-filter:blur(10px);
+    transition:0.5s;
+}
+
+.feature-box:hover{
+    transform:scale(1.01);
+    box-shadow:0 0 30px cyan;
+}
+
+.feature-img{
+    flex:1;
+    min-width:300px;
+}
+
+.feature-img img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+    border-radius:25px;
+}
+
+.feature-content{
+    flex:1;
+    min-width:300px;
+}
+
+.feature-content h2{
+    font-size:42px;
+    color:#00e5ff;
+    margin-bottom:25px;
+}
+
+.feature-content p{
+    font-size:20px;
+    line-height:2;
+    text-align:justify;
+}
+
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    border-radius:25px;
+    overflow:hidden;
+    transition:0.5s;
+    backdrop-filter:blur(10px);
+}
+
+.card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 0 25px cyan;
+}
+
+
+.card-content{
+    padding:25px;
+}
+
+.card-content h3{
+    color:#00e5ff;
+    margin-bottom:15px;
+    font-size:28px;
+}
+
+.card-content p{
+    line-height:1.9;
+    font-size:17px;
+}
+
+
+.evolution-container{
+    text-align:center;
+    background:rgba(255,255,255,0.08);
+    border-radius:35px;
+    padding:35px;
+    backdrop-filter:blur(10px);
+}
+
+
+.evolution-container img{
+    width:100%;
+    height:450px;
+    object-fit: contain;   
+    object-position:center;
+    background:#00000030;  
+    border-radius:20px;
+    transition:1s ease-in-out;
+    padding:10px;
+}
+
+.evolution-container h2{
+    margin-top:25px;
+    font-size:42px;
+    color:#00e5ff;
+}
+
+.evolution-container p{
+    margin-top:20px;
+    font-size:21px;
+    line-height:1.9;
+}
+
+/* TIMELINE */
+
+.timeline{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+.feature-box img{
+    filter: contrast(1.1) saturate(1.1);
+}
+
+.timeline-box{
+    width:220px;
+    background:rgba(255,255,255,0.08);
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    transition:0.5s;
+}
+
+.timeline-box:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px cyan;
+}
+
+.timeline-box h3{
+    color:#00e5ff;
+    margin-bottom:15px;
+}
+
+
+
+.facts{
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    justify-content:center;
+}
+
+.fact{
+    width:260px;
+    background:rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    transition:0.5s;
+}
+
+.fact:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px cyan;
+}
+
+.fact h2{
+    color:#00e5ff;
+    font-size:45px;
+    margin-bottom:15px;
+}
+.page-section{
+display:none;
+}
+
+
+
+.footer{
+    margin-top:100px;
+    text-align:center;
+    padding:35px;
+    background:#00000055;
+}
+
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+
+.text-info {
+  text-shadow: 0 0 10px cyan;
+}
+
+#evolutionTitle {
+  text-shadow: 0 0 10px cyan;
+}
+
+.footer{
+    width:100%;
+    text-align:center;
+    padding:20px;
+    background:rgba(0,0,0,0.6);
+    color:white;
+    margin-top:50px;
+    position:fixed;
+    bottom:0;
+    left:0;
+    z-index:999;
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:contain;
+    background:#111;
+    padding:10px;
+}
+
+.home-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+.home-page h1{
+    font-size:70px;
+    color:#00e5ff;
+}
+
+.home-page p{
+    font-size:24px;
+    margin-top:20px;
+    max-width:900px;
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        padding:15px;
+        gap:15px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .home-page h1{
+        font-size:40px;
+    }
+
+    .home-page p{
+        font-size:18px;
+        padding:0 15px;
+    }
+
+    .section-title{
+        font-size:35px;
+    }
+
+    .feature-box{
+        flex-direction:column;
+        padding:20px;
+    }
+
+    .feature-img img{
+        height:250px;
+    }
+
+    .feature-content h2{
+        font-size:28px;
+    }
+
+    .feature-content p{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+    .card-grid{
+        grid-template-columns:1fr;
+    }
+
+    .timeline{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .timeline-box,
+    .fact{
+        width:90%;
+    }
+
+    .evolution-container img{
+        height:250px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+
+<div class="logo">Human Encyclopedia</div>
+
+<ul class="nav-links">
+
+<li><a href="#" onclick="showSection('history3')">History3</a></li>
+
+<li><a href="#" onclick="showSection('evolution3')">Evolution3</a></li>
+
+<li><a href="#" onclick="showSection('kingdoms3')">Kingdom3</a></li>
+
+<li><a href="#" onclick="showSection('inventions3')">Invention3</a></li>
+
+<li><a href="#" onclick="showSection('future3')">Future3</a></li>
+
+<li><a href="#" onclick="showSection('civilisation3')">Civilisation3</a></li>
+
+<li><a href="#" onclick="showSection('index')">Home3</a></li>
+<button onclick="window.location.href='index.html'">
+  Go to About Page
+</button>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<div id="index" class="page-section home-page">
+
+<h1>DIGITAL HUMAN ENCYCLOPEDIA</h1>
+
+<p id="factText">
+Explore the amazing journey of humanity from primitive humans to future civilizations.
+</p>
+
+</div>
+
+
+<!-- HISTORY -->
+
+<div id="history3" class="page-section">
+
+
+    <!-- Title -->
+    <h1 class="text-center text-info fw-bold display-5 mb-3">
+      History of Humans
+    </h1>
+
+    <p class="text-center text-light lead mb-5 mx-auto" style="max-width: 900px;">
+      The journey of humans began millions of years ago and slowly developed into modern civilization through survival, discoveries, and innovation.
+    </p>
+
+    <!-- Content Box -->
+    <div class="row align-items-center g-5 bg-dark bg-opacity-50 p-4 rounded-4 shadow">
+
+      <!-- Image -->
+      <div class="col-md-6">
+        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1200"
+             class="img-fluid rounded-4 shadow"
+             alt="History Image">
+      </div>
+
+      <!-- Text -->
+      <div class="col-md-6 text-light">
+
+        <h2 class="text-info fw-bold mb-3">
+          The Beginning of Human Civilization
+        </h2>
+
+        <p style="line-height: 1.9; text-align: justify;">
+
+          Human history started when early human ancestors lived in forests, mountains,
+          and caves while surviving through hunting and gathering food from nature.
+          They used natural instincts to protect themselves from dangerous animals
+          and harsh environmental conditions.
+
+          Over time humans discovered fire, which became one of the greatest turning points
+          in human history. Fire provided warmth, protection, and the ability to cook food.
+          Humans also started creating stone tools and weapons that improved hunting
+          and daily survival.
+
+          As communities grew, humans learned agriculture and started farming crops.
+          This led to the formation of permanent villages near rivers and fertile lands.
+          People began domesticating animals, storing food, and building stronger shelters.
+
+          Ancient civilizations such as Egypt, India, Mesopotamia, Greece, and Rome
+          developed writing systems, trade routes, education, science, architecture,
+          and cultural traditions that shaped modern society.
+
+          The Industrial Revolution later introduced machines, factories,
+          electricity, transportation, and communication systems.
+          Today humans continue exploring artificial intelligence, robotics,
+          space science, medicine, and future technologies.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+<!-- EVOLUTION -->
+
+<div id="evolution3" class="page-section">
+
+<section class="section container py-5">
+
+<!-- TITLE -->
+
+<h1 class="text-center text-info fw-bold display-5 mb-5">
+Human Evolution Journey
+</h1>
+
+<!-- EVOLUTION CONTAINER -->
+
+<div class="evolution-container text-center p-4 rounded-4 bg-dark bg-opacity-50">
+
+<!-- IMAGE -->
+
+<img id="evolutionImage"
+
+src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT96uoFYVo4dq-vHd5oB2uAODHB3ACDbKSQqqCrT9cnR05KkafQtboxZCJE8C7qtkdnFRE8OecQX9--epHwT-SocIhmvtfgOSCHMTCruxku1A&s=10"
+
+class="img-fluid rounded-4 mb-4"
+
+style="
+max-height:420px;
+width:100%;
+object-fit:contain;
+background:rgba(255,255,255,0.05);
+padding:10px;
+transition:1s ease-in-out;
+"
+
+alt="Evolution Image">
+
+<!-- TITLE -->
+
+<h2 id="evolutionTitle"
+class="text-info fw-bold mb-4">
+
+Dryopithecus
+
+</h2>
+
+<!-- TEXT -->
+
+<p id="evolutionText"
+
+class="text-light mx-auto"
+
+style="
+max-width:900px;
+line-height:1.9;
+text-align:justify;
+font-size:18px;
+">
+
+Dryopithecus is considered one of the earliest,
+most primitive ancestors in the human evolutionary lineage,
+existing approximately 15 to 10 million years ago during
+the Miocene epoch.
+
+</p>
+
+</div>
+
+</section>
+
+</div>
+
+
+
+<!-- TRANSITION FROM KINGDOMS TO MODERN SOCIETY -->
+
+<div id="kingdoms3" class="page-section">
+
+<section class="section">
+
+    <!-- Title -->
+    <h1 class="text-center text-info fw-bold display-5 mb-3">
+      From Kingdoms to Modern Society
+    </h1>
+
+    <p class="text-center text-light lead mb-5 mx-auto" style="max-width: 900px;">
+      How humans moved from kings and empires to the modern world we live in today.
+    </p>
+
+    <!-- Content Box -->
+    <div class="row align-items-center g-5 bg-dark bg-opacity-50 p-4 rounded-4 shadow">
+
+      <!-- Image -->
+      <div class="col-md-6">
+        <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?q=80&w=1200"
+             class="img-fluid rounded-4 shadow"
+             alt="Kingdom Image">
+      </div>
+
+      <!-- Text -->
+      <div class="col-md-6 text-light">
+
+        <h2 class="text-info fw-bold mb-3">
+          The Change of Human Society
+        </h2>
+
+        <p style="line-height: 1.9; text-align: justify;">
+
+          In ancient times, most human societies were ruled by kings, queens, and emperors.
+          These rulers controlled land, laws, armies, and trade. People followed strict systems
+          where power was concentrated in a single ruler or royal family.
+
+          As time passed, humans began to develop new ideas about fairness, freedom,
+          and equality. Many revolutions and reforms happened across the world,
+          leading to the end of many monarchies.
+
+          Gradually, kingdoms transformed into modern governments where people
+          choose their leaders through elections. This system is called democracy.
+
+          Today, society is organized into countries with constitutions, laws,
+          education systems, technology, and global communication.
+          Instead of kings, we now have governments, leaders, and institutions
+          that work for the people.
+
+          This transition marks one of the biggest changes in human history —
+          from ruled kingdoms → to independent modern societies.
+
+        </p>
+
+      </div>
+
+    </div>
+
+</div>
+<!-- INVENTIONS -->
+
+<div id="inventions3" class="page-section">
+
+
+<h1 class="text-center text-info mb-4">Human Discoveries and Inventions</h1>
+
+<div class="row g-4">
+
+  <div class="col-md-4">
+    <div class="card bg-dark text-white h-100">
+      <img src="https://i.ytimg.com/vi/zfqf5iyY2YY/maxresdefault.jpg" class="card-img-top">
+      <div class="card-body">
+        <h5 class="text-info">Fire</h5>
+        <p>Fire helped humans cook food and survive.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card bg-dark text-white h-100">
+      <img src="data:image/jpeg;base64,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" class="card-img-top">
+      <div class="card-body">
+        <h5 class="text-info">Stone Tools</h5>
+        <p>Used for hunting and survival.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card bg-dark text-white h-100">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB9P_-kgn0YPoNFob269POlsylsoZxXQLwqQ&s" class="card-img-top">
+      <div class="card-body">
+        <h5 class="text-info">Machines</h5>
+        <p>Industrial revolution changed everything.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</section>
+</div>
+<!-- TIMELINE -->
+
+<div id="civilisation3" class="page-section">
+
+<section class="section">
+
+<h1 class="text-center text-info mb-5">
+Human Civilization Timeline
+</h1>
+
+<div class="row g-4 justify-content-center">
+
+  <div class="col-md-4 col-lg-2">
+    <div class="card bg-dark text-white text-center h-100 border-info">
+      <div class="card-body">
+        <h5 class="text-info">Primitive Age</h5>
+        <p>Cave life and hunting.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-lg-2">
+    <div class="card bg-dark text-white text-center h-100 border-info">
+      <div class="card-body">
+        <h5 class="text-info">Tribal Life</h5>
+        <p>Communities close to nature.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-lg-2">
+    <div class="card bg-dark text-white text-center h-100 border-info">
+      <div class="card-body">
+        <h5 class="text-info">Agriculture</h5>
+        <p>Farming and villages.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-lg-2">
+    <div class="card bg-dark text-white text-center h-100 border-info">
+      <div class="card-body">
+        <h5 class="text-info">Kingdoms</h5>
+        <p>Empires and civilizations.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-lg-2">
+    <div class="card bg-dark text-white text-center h-100 border-info">
+      <div class="card-body">
+        <h5 class="text-info">Industries</h5>
+        <p>Factories and machines.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-lg-2">
+    <div class="card bg-dark text-white text-center h-100 border-info">
+      <div class="card-body">
+        <h5 class="text-info">Future Humans</h5>
+        <p>AI and space technology.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- FUTURE OF HUMANITY (EXPANDED MUSEUM SECTION) -->
+
+<!-- FUTURE SECTION -->
+
+
+<div id="future3" class="page-section">
+
+<h1 class="text-center text-info mb-3">
+Future of Humanity
+</h1>
+
+<p class="text-center mb-5">
+A glimpse into how humans may live, work, and evolve in the coming centuries.
+</p>
+
+<div class="row g-4">
+
+  <!-- AI -->
+  <div class="col-md-6 col-lg-3">
+    <div class="card bg-dark text-white h-100 border-info">
+
+      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200"
+      class="card-img-top">
+
+      <div class="card-body">
+
+        <h5 class="text-info">
+        Artificial Intelligence Era
+        </h5>
+
+        <p>
+        Future humans will live alongside advanced AI systems that assist in medicine,
+        education, and scientific research.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SPACE -->
+  <div class="col-md-6 col-lg-3">
+    <div class="card bg-dark text-white h-100 border-info">
+
+      <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200"
+      class="card-img-top">
+
+      <div class="card-body">
+
+        <h5 class="text-info">
+        Space Colonies
+        </h5>
+
+        <p>
+        Humans may live on Mars, Moon bases, and giant space stations in the future.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BIOTECH -->
+  <div class="col-md-6 col-lg-3">
+    <div class="card bg-dark text-white h-100 border-info">
+
+      <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1200"
+      class="card-img-top">
+
+      <div class="card-body">
+
+        <h5 class="text-info">
+        Human Enhancement
+        </h5>
+
+        <p>
+        Biotechnology may improve human health, lifespan, and intelligence.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ROBOTS -->
+  <div class="col-md-6 col-lg-3">
+    <div class="card bg-dark text-white h-100 border-info">
+
+      <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200"
+      class="card-img-top">
+
+      <div class="card-body">
+
+        <h5 class="text-info">
+        Human–Robot Collaboration
+        </h5>
+
+        <p>
+        Robots may work together with humans in industries, hospitals, and homes.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+    <p>Digital Human Encyclopedia ©️ 2026</p>
+</div>
+
+<!-- JAVASCRIPT -->
+
+<script>
+    function showSection(sectionId){
+
+const sections = document.querySelectorAll(".page-section");
+
+sections.forEach(function(section){
+section.style.display = "none";
+});
+
+document.getElementById(sectionId).style.display = "block";
+
+window.scrollTo(0,0);
+
+}
+
+/* OPEN HOME PAGE FIRST */
+
+showSection("home3");
+
+
+const evolutionData = [
+
+{
+image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT96uoFYVo4dq-vHd5oB2uAODHB3ACDbKSQqqCrT9cnR05KkafQtboxZCJE8C7qtkdnFRE8OecQX9--epHwT-SocIhmvtfgOSCHMTCruxku1A&s=10",
+title:"Dryopithecus",
+text:"Dryopithecus is considered one of the earliest, most primitive ancestors in the human evolutionary lineage, existing approximately 15 to 10 million years ago during the Miocene epoch. Known often as the oak wood ape, it is widely believed to be the common ancestor of both modern apes and humans"
+},
+
+{
+image:"https://www.thoughtco.com/thmb/IbZknMNO0AViAh3ha-hW3f3d4Z0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ramapithecusGE-56a253de5f9b58b7d0c91851.jpg",
+title:"Ramapithecus",
+text:"Ramapithecus is an extinct genus of primates that lived during the Miocene epoch, approximately 14 to 9 million years ago. Historically, it was regarded by many anthropologists as the earliest direct ancestor of humans (the first true hominid) due to its man-like teeth and jaw structure, though modern evidence has largely refined this view."
+},
+
+{
+image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGb1cuU21DrxqrGGhvt5SPGTU0VrlfT4pSAA&s",
+title:"Australopithecus",
+text:"Australopithecus (meaning southern ape is a critical genus of early hominins that lived in Africa approximately 4 to 2 million years ago, serving as a key transitional link between ape-like ancestors and the genus Homo (modern humans). They are foundational to understanding human evolution because they combined bipedal movement with small, ape-sized brains"
+},
+
+{
+image:"https://cdn.britannica.com/39/79539-050-9CCA1C66/Homo-habilis-rendering-Artist.jpg",
+title:"Homo Habilis",
+text:"Homo habilis (handy man), living ~2.4–1.4 million years ago in East/South Africa, is a crucial early Homo species representing a transition from ape-like australopithecines to modern humans. Key for its larger brain and stone tool use, it represents a pivotal shift toward increased intelligence, reduced teeth size, and enhanced bipedalism"
+},
+
+{
+image:"https://cdn.britannica.com/02/188502-050-7B6A6E8D/Homo-erectus-model.jpg",
+title:"Homo Erectus",
+text:"Homo erectus walked fully upright and was among the first humans to control fire."
+},
+
+{
+image:"https://cdn.britannica.com/40/79540-050-AE93671F/rendering-Artist-Homo-neanderthalensis-Europe-Central-Asia.jpg",
+title:"Neanderthals",
+text:"Homo neanderthalensis were archaic humans who evolved outside Africa, sharing a common ancestor with Homo sapiens around 500,000–700,000 years ago. As a distinct species adapted to cold European climates, they used complex tools, created art, and buried their dead before going extinct ~40,000 years ago, following interbreeding with modern humans."
+},
+
+{
+image:"https://cdn.britannica.com/97/76397-050-29DB2594/Human-being.jpg",
+title:"Homo Sapiens (Wise Man)",
+text:"Homo sapiens (Latin for wise man) are the only surviving members of the Homo genus, representing the final stage in a 6–7 million-year evolutionary journey that began in Africa. Our species emerged roughly 300,000 years ago during a period of dramatic climate change, characterized by significant brain expansion, reduced jaw size, and the development of complex cultural behavior."
+}
+
+];
+
+let index = 0;
+
+function changeEvolution(){
+
+    index++;
+
+    if(index >= evolutionData.length){
+        index = 0;
+    }
+
+    const image = document.getElementById("evolutionImage");
+    const title = document.getElementById("evolutionTitle");
+    const text = document.getElementById("evolutionText");
+
+    image.style.opacity = "0";
+
+    setTimeout(function(){
+
+        image.src = evolutionData[index].image;
+        title.innerHTML = evolutionData[index].title;
+        text.innerHTML = evolutionData[index].text;
+
+        image.style.opacity = "1";
+
+    },500);
+
+}
+
+setInterval(changeEvolution,3000);
+
+
+/* FACT CHANGER */
+
+const facts = [
+
+"Humans discovered fire nearly one million years ago.",
+
+"Ancient humans painted stories inside caves.",
+
+"Tribal communities developed unique cultures and traditions.",
+
+"Industries transformed transportation and communication.",
+
+"Future humans may explore other planets."
+
+];
+
+let factIndex = 0;
+
+setInterval(function(){
+
+document.getElementById("factText").innerHTML =
+facts[factIndex];
+
+factIndex++;
+
+if(factIndex >= facts.length){
+factIndex = 0;
+}
+
+},4000);
+
+
+
+function showSection(sectionId){
+
+const sections = document.querySelectorAll(".page-section");
+
+sections.forEach(function(section){
+section.style.display = "none";
+});
+
+document.getElementById(sectionId).style.display = "block";
+
+window.scrollTo(0,0);
+
+}
+
+showSection("home3");
+
+
+
+</script>
